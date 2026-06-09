@@ -8,23 +8,28 @@
 
 ## Edits Visuais
 
-- [x] **Hero — espaçamento da logo e subtítulo**
-  - Reduzir `margin-bottom` da logo para aproximá-la do texto "Charme e Flores"
-  - Reduzir `margin-top` do texto "Charme e Flores" para ficar mais colado à logo
-  - Reduzir distância entre o texto "Charme e Flores" e o subtítulo `.hero-script`
-  - Resultado final: logo + título + subtítulo formam um bloco visual uniforme e premium
-  - Não quebrar responsividade mobile
+- [x] **Seção "Nossas Criações" — animação de hover nos ícones**
+  - Atualmente apenas o card "Vasinhos Decorativos" tem animação no ícone ao hover
+  - Replicar a mesma animação de hover do ícone de Vasinhos para todos os outros cards:
+    - Chaveiros
+    - Luminárias
+    - Kits Presentes
+  - Manter consistência visual entre todos os cards
 
-- [x] **Hero — botão Explorar (`.hero-scroll`)**
-  - Adicionar `margin-top` leve no `.hero-scroll` para afastá-lo levemente dos botões acima
-  - Não quebrar layout nem responsividade mobile
+- [x] **Seção "Nossas Criações" — layout do grid**
+  - Layout desejado:
+    - Primeira linha: apenas **Decoração / Vasinhos Decorativos** ocupando largura total (horizontal)
+    - Segunda linha: **Acessórios**, **Especial** e **Exclusivo** lado a lado (3 colunas)
+  - Manter responsividade mobile (empilhar em tela pequena)
 
-- [x] **Cards de produto — `.prod-img` prontos para imagem real**
-  - Remover SVG placeholder e background gradiente de cada `.prod-img`
-  - Substituir por tag `<img>` com `src` apontando para os respectivos arquivos:
-    - Card 1 (Buquê Encantado): `media/products/buque.jpg`
-    - Card 2 (Chaveiro Florzinha): `media/products/chaveiro.jpg`
-    - Card 3 (Luminária Jardim Mágico): `media/products/luminaria.jpg`
-  - Estilo da imagem: `width: 100%; height: 100%; object-fit: cover;`
-  - Manter as dimensões e proporção do `.prod-img` atual
-  - Enquanto a imagem não existir na pasta, exibir fundo rosa suave `#FDE8EE` como fallback
+---
+
+## Edits de Conteúdo
+
+- [x] **Links de contato — atualizar WhatsApp e Instagram em todos os botões/CTAs**
+  - WhatsApp: `+55 31 9107-8401`
+    - Formato do link: `https://wa.me/553191078401`
+    - Aplicar em todos os botões que redirecionam para WhatsApp no site
+  - Instagram: `https://www.instagram.com/charmeeflores?igsh=MTQ1Y3R0OXhiNmtxZg==`
+    - Aplicar em todos os links/ícones de Instagram no site
+  - Verificar footer, cards de produto, botões do hero e qualquer outro CTA

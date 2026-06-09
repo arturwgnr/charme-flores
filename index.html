@@ -13,7 +13,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --pink:rgb(247, 178, 194);
+      --pink:rgb(238, 161, 179);
       --pink-deep:   #E8849A;
       --pink-pale:   #FDE8EE;
       --gold:        #D4AF7A;
@@ -264,7 +264,7 @@
 
     .hero-scroll {
       margin-top: 40px;
-      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      display: block; flex-direction: column; align-items: center; gap: 7px;
       z-index: 2;
       opacity: 0; animation: fadeUp .8s var(--ease) 1s forwards;
     }
@@ -340,8 +340,7 @@
     .cat-grid {
       max-width: 1040px; margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 230px 230px;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 14px;
     }
 
@@ -349,26 +348,26 @@
       position: relative; z-index: 1; border-radius: 20px; overflow: hidden; cursor: pointer;
       box-shadow: var(--shadow-s);
       transition: transform 0.6s ease, box-shadow 0.6s ease;
+      --illo-y: -60%;
     }
     .cat-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: var(--shadow-l); }
 
-    .cat-card:nth-child(1) { grid-column: 1 / 6;  grid-row: 1;     background: linear-gradient(135deg, #FDE8EE, #F4C5D0); color: #3D1F2A; }
-    .cat-card:nth-child(2) { grid-column: 6 / 9;  grid-row: 1;     background: linear-gradient(135deg, #F0D9B0, #E8C88A); color: #3A2A0A; }
-    .cat-card:nth-child(3) { grid-column: 9 / 13; grid-row: 1 / 3; background: linear-gradient(135deg, #E8F4F0, #C5E0D8); color: #1A3530; }
-    .cat-card:nth-child(4) { grid-column: 1 / 4;  grid-row: 2;     background: linear-gradient(135deg, #EDE8F4, #C9C0E0); color: #251A3A; }
-    .cat-card:nth-child(5) { grid-column: 4 / 9;  grid-row: 2;     background: linear-gradient(135deg, #FFF4E6, #FFE4C8); color: #3A2010; }
+    /* Linha 1: Vasinhos ocupa toda a largura */
+    .cat-card:nth-child(1) { grid-column: 1 / -1; min-height: 256px; background: linear-gradient(135deg, #FDE8EE, #F4C5D0); color: #3D1F2A; }
+    /* Linha 2: 3 colunas iguais */
+    .cat-card:nth-child(2) { background: linear-gradient(135deg, #F0D9B0, #E8C88A); color: #3A2A0A; --illo-y: -62%; min-height: 220px; }
+    .cat-card:nth-child(3) { background: linear-gradient(135deg, #EDE8F4, #C9C0E0); color: #251A3A; --illo-y: -62%; min-height: 220px; }
+    .cat-card:nth-child(4) { background: linear-gradient(135deg, #FFF4E6, #FFE4C8); color: #3A2010; --illo-y: -66%; min-height: 220px; }
 
-    .cat-inner { width: 100%; height: 100%; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; transition: 0.4s ease;}
-
-    
+    .cat-inner { width: 100%; height: 100%; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; position: relative; transition: 0.4s ease; }
 
     .cat-illo {
       position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -60%);
+      transform: translate(-50%, var(--illo-y));
       pointer-events: none;
       transition: transform 0.6s ease;
     }
-    .cat-card:hover .cat-illo { transform: translate(-50%, -65%) scale(1.09) rotate(4deg); }
+    .cat-card:hover .cat-illo { transform: translate(-50%, calc(var(--illo-y) - 5%)) scale(1.09) rotate(4deg); }
 
     .cat-tag  { font-size: .63rem; letter-spacing: .1em; text-transform: uppercase; opacity: .55; margin-bottom: 3px; }
     .cat-name { font-family: var(--font-d); font-size: 1.25rem; font-style: italic; font-weight: 400; line-height: 1.2; }
@@ -567,15 +566,11 @@
       .sobre-ring { width: 220px; height: 220px; }
       .stats { justify-content: center; }
 
-      .cat-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-      .cat-card:nth-child(1) { grid-column: 1 / -1; grid-row: auto; min-height: 200px; }
-      .cat-card:nth-child(2) { grid-column: auto; grid-row: auto; min-height: 170px; }
-      .cat-card:nth-child(3) { grid-column: auto; grid-row: auto; min-height: 170px; }
-      .cat-card:nth-child(4) { grid-column: auto; grid-row: auto; min-height: 170px; }
-      .cat-card:nth-child(5) { grid-column: 1 / -1; grid-row: auto; min-height: 170px; }
+      .cat-grid { grid-template-columns: 1fr 1fr; }
+      .cat-card:nth-child(1) { grid-column: 1 / -1; min-height: 200px; }
+      .cat-card:nth-child(2) { grid-column: auto; min-height: 170px; }
+      .cat-card:nth-child(3) { grid-column: auto; min-height: 170px; }
+      .cat-card:nth-child(4) { grid-column: 1 / -1; min-height: 170px; }
 
       .dest-grid { grid-template-columns: 1fr; }
 
@@ -601,7 +596,7 @@
     <a href="#sobre"      onclick="closeMenu()">Sobre</a>
     <a href="#categorias" onclick="closeMenu()">Criações</a>
     <a href="#destaques"  onclick="closeMenu()">Destaques</a>
-    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" onclick="closeMenu()">WhatsApp</a>
+    <a href="https://wa.me/553191078401" target="_blank" rel="noopener" onclick="closeMenu()">WhatsApp</a>
   </div>
 
   <!-- Nav -->
@@ -617,7 +612,7 @@
         <li><a href="#categorias">Criações</a></li>
         <li><a href="#destaques">Destaques</a></li>
       </ul>
-      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="nav-cta">
+      <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="nav-cta">
         Pedir agora <span class="btn-icon" aria-hidden="true">↗</span>
       </a>
       <button class="nav-ham" id="ham" aria-label="Abrir menu" aria-expanded="false">
@@ -658,11 +653,11 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn-primary">
+        <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="btn-primary">
           Pedir pelo WhatsApp
           <span class="btn-icon" aria-hidden="true">📱</span>
         </a>
-        <a href="https://instagram.com/charme_e_flores" target="_blank" rel="noopener" class="btn-secondary">
+        <a href="https://www.instagram.com/charmeeflores?igsh=MTQ1Y3R0OXhiNmtxZg==" target="_blank" rel="noopener" class="btn-secondary">
           Ver no Instagram ✦
         </a>
       <div class="hero-scroll" aria-hidden="true">
@@ -765,7 +760,7 @@
       <!-- 2: Chaveiros -->
       <article class="cat-card reveal">
         <div class="cat-inner">
-          <div class="cat-illo" style="transform:translate(-50%,-62%)" aria-hidden="true">
+          <div class="cat-illo" aria-hidden="true">
             <svg width="72" height="92" viewBox="0 0 72 92" fill="none">
               <circle cx="36" cy="16" r="11" fill="none" stroke="rgba(58,42,10,.35)" stroke-width="2.5"/>
               <line x1="36" y1="27" x2="36" y2="37" stroke="rgba(58,42,10,.28)" stroke-width="2" stroke-dasharray="3 2"/>
@@ -787,35 +782,10 @@
         </div>
       </article>
 
-      <!-- 3: Luminárias (tall) -->
+      <!-- 3: Kits -->
       <article class="cat-card reveal">
         <div class="cat-inner">
-          <div class="cat-illo" style="transform:translate(-50%,-58%)" aria-hidden="true">
-            <svg width="88" height="148" viewBox="0 0 88 148" fill="none">
-              <path d="M18 56 L27 18 Q44 9,61 18 L70 56 Q56 66,44 66 Q32 66,18 56Z" fill="rgba(197,224,216,.65)" stroke="rgba(26,53,48,.22)" stroke-width="1.5"/>
-              <ellipse cx="44" cy="40" rx="18" ry="17" fill="rgba(255,240,200,.55)"/>
-              <rect x="41" y="65" width="6" height="50" rx="3" fill="rgba(26,53,48,.32)"/>
-              <ellipse cx="44" cy="118" rx="20" ry="7" fill="rgba(26,53,48,.18)" stroke="rgba(26,53,48,.28)" stroke-width="1"/>
-              <circle cx="44" cy="38" r="7" fill="rgba(26,53,48,.18)"/><circle cx="44" cy="38" r="4.5" fill="rgba(197,224,216,.9)"/>
-              <circle cx="31" cy="47" r="4.5" fill="rgba(26,53,48,.13)"/>
-              <circle cx="57" cy="47" r="4.5" fill="rgba(26,53,48,.13)"/>
-              <line x1="44" y1="3"  x2="44" y2="9"  stroke="rgba(255,240,200,.7)" stroke-width="2" stroke-linecap="round"/>
-              <line x1="13" y1="13" x2="18" y2="20" stroke="rgba(255,240,200,.7)" stroke-width="2" stroke-linecap="round"/>
-              <line x1="75" y1="13" x2="70" y2="20" stroke="rgba(255,240,200,.7)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <div class="cat-tag">Decoração</div>
-            <div class="cat-name">Luminárias &<br>Porta-Retratos</div>
-            <div class="cat-desc">Luz e memórias ornadas de flores</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4: Kits -->
-      <article class="cat-card reveal">
-        <div class="cat-inner">
-          <div class="cat-illo" style="transform:translate(-50%,-62%)" aria-hidden="true">
+          <div class="cat-illo" aria-hidden="true">
             <svg width="66" height="74" viewBox="0 0 66 74" fill="none">
               <rect x="7" y="30" width="52" height="36" rx="6" fill="rgba(201,192,224,.5)" stroke="rgba(37,26,58,.22)" stroke-width="1.5"/>
               <rect x="4" y="22" width="58" height="13" rx="5" fill="rgba(201,192,224,.7)" stroke="rgba(37,26,58,.18)" stroke-width="1.5"/>
@@ -838,7 +808,7 @@
       <!-- 5: Personalizados (medium) -->
       <article class="cat-card reveal">
         <div class="cat-inner">
-          <div class="cat-illo" style="transform:translate(-50%,-66%)" aria-hidden="true">
+          <div class="cat-illo" aria-hidden="true">
             <svg width="130" height="90" viewBox="0 0 130 90" fill="none">
               <path d="M28 46 L30 37 L32 46 L41 48 L32 50 L30 59 L28 50 L19 48Z" fill="rgba(58,32,16,.18)"/>
               <path d="M100 32 L102 24 L104 32 L112 34 L104 36 L102 44 L100 36 L92 34Z" fill="rgba(58,32,16,.18)"/>
@@ -871,13 +841,13 @@
       <!-- Produto 1 — Buquê Encantado -->
       <article class="prod-card reveal">
         <div class="prod-img">
-          <img src="media/products/buque.jpg" alt="Buquê Encantado" class="prod-img-photo">
+          <img src="media/products/buque.jpeg" alt="Buquê Encantado" class="prod-img-photo">
         </div>
         <div class="prod-info">
           <div class="prod-tag">Buquês</div>
           <div class="prod-name">Buquê Encantado</div>
           <p class="prod-desc">Buquê artesanal em chenille com flores vermelhas e brancas, embrulhado em papel kraft dourado e laço acetinado. Perfeito para presentear.</p>
-          <a href="https://wa.me/5511999999999?text=Olá! Vi o Buquê Encantado no site e gostaria de saber mais 🌸" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Olá! Vi o Buquê Encantado no site e gostaria de saber mais 🌸" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -886,13 +856,13 @@
       <!-- Produto 2 — Chaveiro Florzinha -->
       <article class="prod-card reveal" style="transition-delay:.1s">
         <div class="prod-img">
-          <img src="media/products/chaveiro.jpg" alt="Chaveiro Florzinha" class="prod-img-photo">
+          <img src="media/products/chaveiro.jpeg" alt="Chaveiro Florzinha" class="prod-img-photo">
         </div>
         <div class="prod-info">
           <div class="prod-tag">Chaveiros</div>
           <div class="prod-name">Chaveiro Florzinha</div>
           <p class="prod-desc">Flores chenille com pérola no centro e acabamento metálico. Disponível em várias cores — laranja, bege, lilás, pink e mais.</p>
-          <a href="https://wa.me/5511999999999?text=Oi! Quero saber mais sobre o Chaveiro Florzinha 🌸" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Oi! Quero saber mais sobre o Chaveiro Florzinha 🌸" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -901,13 +871,13 @@
       <!-- Produto 3 — Luminária Jardim Mágico -->
       <article class="prod-card reveal" style="transition-delay:.2s">
         <div class="prod-img">
-          <img src="media/products/luminaria.jpg" alt="Luminária Jardim Mágico" class="prod-img-photo">
+          <img src="media/products/luminaria.jpeg" alt="Luminária Jardim Mágico" class="prod-img-photo">
         </div>
         <div class="prod-info">
           <div class="prod-tag">Luminárias</div>
           <div class="prod-name">Luminária Jardim Mágico</div>
           <p class="prod-desc">Luminária artesanal única em chenille pink com cogumelos, caracolzinho e mini flores na base. Ilumina e decora com charme.</p>
-          <a href="https://wa.me/5511999999999?text=Olá! Me interessei pela Luminária Jardim Mágico ✨" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Olá! Me interessei pela Luminária Jardim Mágico ✨" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -929,20 +899,20 @@
             <li><a href="#sobre">Sobre nós</a></li>
             <li><a href="#categorias">Nossas criações</a></li>
             <li><a href="#destaques">Destaques</a></li>
-            <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener">Fazer pedido</a></li>
+            <li><a href="https://wa.me/553191078401" target="_blank" rel="noopener">Fazer pedido</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-col-title">Nos siga</div>
           <div class="social-pills">
-            <a href="https://instagram.com/charme_e_flores" target="_blank" rel="noopener" class="social-pill">📸 Instagram</a>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="social-pill">💬 WhatsApp</a>
+            <a href="https://www.instagram.com/charmeeflores?igsh=MTQ1Y3R0OXhiNmtxZg==" target="_blank" rel="noopener" class="social-pill">📸 Instagram</a>
+            <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="social-pill">💬 WhatsApp</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Charme e Flores · Feito com 🌸 e muito carinho</p>
-        <p class="footer-copy">Artur Wagner - Todos os direitos reservados</p>
+        <p class="footer-copy">ⓒ 2026 Charme e Flores · Feito com 🌸 e muito carinho</p>
+        <p class="footer-copy">ⓒ Artur Wagner - Todos os direitos reservados</p>
       </div>
     </div>
   </footer>
@@ -1084,7 +1054,7 @@
     const SYSTEM = `Você é Lua, a assistente fofa e acolhedora da Charme e Flores 🐰
 Fale de forma calorosa, use emojis com moderação (1-2 por mensagem), seja prestativa e gentil.
 A loja vende flores artesanais de crochê e chenille: vasinhos decorativos, chaveiros, luminárias e porta-retratos — todas feitas à mão com muito carinho.
-Sempre encerre sugerindo contato via WhatsApp (+55 xx xxxxx-xxxx) ou Instagram (@charme_e_flores) para fazer um pedido.
+Sempre encerre sugerindo contato via WhatsApp (+55 31 9107-8401) ou Instagram (@charmeeflores) para fazer um pedido.
 Nunca invente preços específicos — diga que variam conforme personalização e convide para conversar.
 Mantenha respostas concisas (3-5 frases) e no tom fofo da marca.`;
 
