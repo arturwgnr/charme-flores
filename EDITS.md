@@ -6,27 +6,25 @@
 
 ---
 
-## Edits Gerais
-
-- [ ] Substituir logo placeholder pela imagem real (`assets/logo.png`)
-- [ ] Configurar API key da Anthropic no projeto
-
----
-
-## Edits Claude (Assistente IA)
-
-*(sem pendências no momento)*
-
----
-
 ## Edits Visuais
 
-- [x] **Pétalas — comportamento em loop**
-- [x] **Flor da seção Sobre** — rotação reduzida
-- [x] **Hover nos elementos** — transição 0.6s aplicada
+- [x] **Hero — espaçamento da logo e subtítulo**
+  - Reduzir `margin-bottom` da logo para aproximá-la do texto "Charme e Flores"
+  - Reduzir `margin-top` do texto "Charme e Flores" para ficar mais colado à logo
+  - Reduzir distância entre o texto "Charme e Flores" e o subtítulo `.hero-script`
+  - Resultado final: logo + título + subtítulo formam um bloco visual uniforme e premium
+  - Não quebrar responsividade mobile
 
-- [x] **Pétalas — z-index global (efeito premium)**
-  - A queda de pétalas deve ser **contínua** (sem pausa)
-  - As pétalas devem passar **atrás de todos os elementos** da página: footer, cards, botões, seções, navbar
-  - Implementar via z-index baixo nas pétalas (ex: `z-index: 0`) e garantir que todos os elementos interativos e visuais tenham `z-index` explicitamente acima (ex: `position: relative; z-index: 1` nos cards, botões, footer, navbar)
-  - O efeito deve dar sensação de profundidade — pétalas no plano de fundo, conteúdo no primeiro plano
+- [x] **Hero — botão Explorar (`.hero-scroll`)**
+  - Adicionar `margin-top` leve no `.hero-scroll` para afastá-lo levemente dos botões acima
+  - Não quebrar layout nem responsividade mobile
+
+- [x] **Cards de produto — `.prod-img` prontos para imagem real**
+  - Remover SVG placeholder e background gradiente de cada `.prod-img`
+  - Substituir por tag `<img>` com `src` apontando para os respectivos arquivos:
+    - Card 1 (Buquê Encantado): `media/products/buque.jpg`
+    - Card 2 (Chaveiro Florzinha): `media/products/chaveiro.jpg`
+    - Card 3 (Luminária Jardim Mágico): `media/products/luminaria.jpg`
+  - Estilo da imagem: `width: 100%; height: 100%; object-fit: cover;`
+  - Manter as dimensões e proporção do `.prod-img` atual
+  - Enquanto a imagem não existir na pasta, exibir fundo rosa suave `#FDE8EE` como fallback
