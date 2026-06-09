@@ -82,7 +82,7 @@
     .nav-inner.scrolled { background: rgba(255,250,249,.97); box-shadow: var(--shadow-m); }
 
     .nav-logo { display: inline-flex; align-items: center; font-family: var(--font-s); font-size: 1.2rem; color: var(--pink-deep); white-space: nowrap; }
-    .nav-logo-img { height: 34px; width: auto; display: block; margin-bottom: none;}
+    .nav-logo-img { height: 55px; width: auto; display: block; margin-bottom: none;}
     .nav-logo-text { font-family: var(--font-s); font-size: 1.2rem; color: var(--pink-deep); }
 
     .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
@@ -168,7 +168,7 @@
     .eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); }
 
     .hero-logo {
-      width: clamp(180px, 46vw, 340px);
+      width: clamp(180px, 46vw, 380px);
       height: auto;
       display: block;
       margin: 0 auto 0;
@@ -561,6 +561,10 @@
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .nav-ham { display: flex; }
+
+      .hero-logo {
+    width: clamp(220px, 72vw, 320px);
+  }
 
       .hero-blob-2 { width: 140px; height: 140px; top: -30px; right: -40px; left: auto; bottom: auto; }
 
