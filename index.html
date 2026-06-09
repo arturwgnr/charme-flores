@@ -135,16 +135,17 @@
       position: absolute; border-radius: 50%; pointer-events: none;
     }
     .hero-blob-1 {
-      width: 420px; height: 420px;
+      width: 220px; height: 210px;
       background: var(--pink); opacity: .10;
       top: -100px; right: -90px;
-      animation: blobF 9s ease-in-out infinite;
+      animation: blobF 50s ease-in-out infinite;
     }
     .hero-blob-2 {
       width: 260px; height: 260px;
-      background: var(--gold); opacity: .10;
+      background: var(--gold); opacity: .010;
       bottom: 50px; left: -60px;
-      animation: blobF 11s ease-in-out infinite reverse;
+
+      animation: blobF 50s ease-in-out infinite reverse;
     }
     @keyframes blobF {
       0%,100% { transform: translateY(0) scale(1); }
@@ -207,7 +208,7 @@
     .hero-script-2 {
       font-family: var(--font-s);
       font-size: clamp(4rem, 3.5vw, 2rem);
-      color: var(--gold);
+      color: var(--pink);
       display: block;
       margin-top: 0;
       margin-bottom: 4px;
@@ -561,6 +562,8 @@
       .nav-links, .nav-cta { display: none; }
       .nav-ham { display: flex; }
 
+      .hero-blob-2 { width: 140px; height: 140px; top: -30px; right: -40px; left: auto; bottom: auto; }
+
       .sobre-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
       .sobre-visual { order: -1; }
       .sobre-ring { width: 220px; height: 220px; }
@@ -596,7 +599,7 @@
     <a href="#sobre"      onclick="closeMenu()">Sobre</a>
     <a href="#categorias" onclick="closeMenu()">Criações</a>
     <a href="#destaques"  onclick="closeMenu()">Destaques</a>
-    <a href="https://wa.me/553191078401" target="_blank" rel="noopener" onclick="closeMenu()">WhatsApp</a>
+    <a href="https://wa.me/553191078401?text=Olá! Vim pelo site e gostaria de fazer um pedido 🌸" target="_blank" rel="noopener" onclick="closeMenu()">WhatsApp</a>
   </div>
 
   <!-- Nav -->
@@ -612,7 +615,7 @@
         <li><a href="#categorias">Criações</a></li>
         <li><a href="#destaques">Destaques</a></li>
       </ul>
-      <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="nav-cta">
+      <a href="https://wa.me/553191078401?text=Olá! Vim pelo site e gostaria de fazer um pedido 🌸" target="_blank" rel="noopener" class="nav-cta">
         Pedir agora <span class="btn-icon" aria-hidden="true">↗</span>
       </a>
       <button class="nav-ham" id="ham" aria-label="Abrir menu" aria-expanded="false">
@@ -653,7 +656,7 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="btn-primary">
+        <a href="https://wa.me/553191078401?text=Olá! Vim pelo site da Charme e Flores e gostaria de saber mais sobre as peças 🐰✨" target="_blank" rel="noopener" class="btn-primary">
           Pedir pelo WhatsApp
           <span class="btn-icon" aria-hidden="true">📱</span>
         </a>
@@ -847,7 +850,7 @@
           <div class="prod-tag">Buquês</div>
           <div class="prod-name">Buquê Encantado</div>
           <p class="prod-desc">Buquê artesanal em chenille com flores vermelhas e brancas, embrulhado em papel kraft dourado e laço acetinado. Perfeito para presentear.</p>
-          <a href="https://wa.me/553191078401?text=Olá! Vi o Buquê Encantado no site e gostaria de saber mais 🌸" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Olá! Vi o Buquê Encantado no site e me interessei 💐 Pode me contar mais?" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -862,7 +865,7 @@
           <div class="prod-tag">Chaveiros</div>
           <div class="prod-name">Chaveiro Florzinha</div>
           <p class="prod-desc">Flores chenille com pérola no centro e acabamento metálico. Disponível em várias cores — laranja, bege, lilás, pink e mais.</p>
-          <a href="https://wa.me/553191078401?text=Oi! Quero saber mais sobre o Chaveiro Florzinha 🌸" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Olá! Vi o Chaveiro Florzinha no site e adorei! 🌸 Gostaria de saber mais" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -877,7 +880,7 @@
           <div class="prod-tag">Luminárias</div>
           <div class="prod-name">Luminária Jardim Mágico</div>
           <p class="prod-desc">Luminária artesanal única em chenille pink com cogumelos, caracolzinho e mini flores na base. Ilumina e decora com charme.</p>
-          <a href="https://wa.me/553191078401?text=Olá! Me interessei pela Luminária Jardim Mágico ✨" target="_blank" rel="noopener" class="prod-cta">
+          <a href="https://wa.me/553191078401?text=Olá! Vi a Luminária Jardim Mágico no site e fiquei encantada ✨ Pode me contar mais?" target="_blank" rel="noopener" class="prod-cta">
             Tenho interesse →
           </a>
         </div>
@@ -899,14 +902,14 @@
             <li><a href="#sobre">Sobre nós</a></li>
             <li><a href="#categorias">Nossas criações</a></li>
             <li><a href="#destaques">Destaques</a></li>
-            <li><a href="https://wa.me/553191078401" target="_blank" rel="noopener">Fazer pedido</a></li>
+            <li><a href="https://wa.me/553191078401?text=Olá! Cheguei até o fim do site e adorei tudo! Gostaria de fazer um pedido 🌸" target="_blank" rel="noopener">Fazer pedido</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-col-title">Nos siga</div>
           <div class="social-pills">
             <a href="https://www.instagram.com/charmeeflores?igsh=MTQ1Y3R0OXhiNmtxZg==" target="_blank" rel="noopener" class="social-pill">📸 Instagram</a>
-            <a href="https://wa.me/553191078401" target="_blank" rel="noopener" class="social-pill">💬 WhatsApp</a>
+            <a href="https://wa.me/553191078401?text=Olá! Vim pelo site da Charme e Flores 🐰 Gostaria de conversar!" target="_blank" rel="noopener" class="social-pill">💬 WhatsApp</a>
           </div>
         </div>
       </div>

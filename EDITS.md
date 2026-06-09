@@ -8,28 +8,27 @@
 
 ## Edits Visuais
 
-- [x] **Seção "Nossas Criações" — animação de hover nos ícones**
-  - Atualmente apenas o card "Vasinhos Decorativos" tem animação no ícone ao hover
-  - Replicar a mesma animação de hover do ícone de Vasinhos para todos os outros cards:
-    - Chaveiros
-    - Luminárias
-    - Kits Presentes
-  - Manter consistência visual entre todos os cards
-
-- [x] **Seção "Nossas Criações" — layout do grid**
-  - Layout desejado:
-    - Primeira linha: apenas **Decoração / Vasinhos Decorativos** ocupando largura total (horizontal)
-    - Segunda linha: **Acessórios**, **Especial** e **Exclusivo** lado a lado (3 colunas)
-  - Manter responsividade mobile (empilhar em tela pequena)
+- [x] **Hero — `.hero-blob-2` no mobile**
+  - Apenas em telas mobile (`max-width: 768px`)
+  - Reduzir tamanho: de `260px` para aproximadamente `140px`
+  - Reposicionar para o canto superior direito (longe da logo)
+  - Sugestão: `top: -30px; right: -40px; left: auto; bottom: auto;`
+  - Não alterar comportamento no desktop
 
 ---
 
 ## Edits de Conteúdo
 
-- [x] **Links de contato — atualizar WhatsApp e Instagram em todos os botões/CTAs**
-  - WhatsApp: `+55 31 9107-8401`
-    - Formato do link: `https://wa.me/553191078401`
-    - Aplicar em todos os botões que redirecionam para WhatsApp no site
-  - Instagram: `https://www.instagram.com/charmeeflores?igsh=MTQ1Y3R0OXhiNmtxZg==`
-    - Aplicar em todos os links/ícones de Instagram no site
-  - Verificar footer, cards de produto, botões do hero e qualquer outro CTA
+- [x] **WhatsApp — mensagens personalizadas por botão**
+  - Atualizar o parâmetro `?text=` de cada link `wa.me` conforme abaixo
+  - Todos os links devem manter o número `553191078401`
+
+  | Botão | Mensagem (encode para URL) |
+  |---|---|
+  | Nav — "Pedir agora" | `Olá! Vim pelo site e gostaria de fazer um pedido 🌸` |
+  | Hero — "Pedir pelo WhatsApp" | `Olá! Vim pelo site da Charme e Flores e gostaria de saber mais sobre as peças 🐰✨` |
+  | Footer — "Fazer pedido" | `Olá! Cheguei até o fim do site e adorei tudo! Gostaria de fazer um pedido 🌸` |
+  | Card — Buquê Encantado | `Olá! Vi o Buquê Encantado no site e me interessei 💐 Pode me contar mais?` |
+  | Card — Chaveiro Florzinha | `Olá! Vi o Chaveiro Florzinha no site e adorei! 🌸 Gostaria de saber mais` |
+  | Card — Luminária Jardim Mágico | `Olá! Vi a Luminária Jardim Mágico no site e fiquei encantada ✨ Pode me contar mais?` |
+  | Footer social pill — WhatsApp | `Olá! Vim pelo site da Charme e Flores 🐰 Gostaria de conversar!` |
